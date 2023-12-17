@@ -1,0 +1,11 @@
+<h1>Modif utilisateurs</h1>
+<form action="/user/update" method="POST">
+    Nom : 
+    <input type="text" name="lastname" value="<%=lastname%>" /><br/>
+    Prénom :
+    <input type="text" name="firstname" value="<%= firstname%>" /><br/>
+    <input type="hidden" name="iduser" value="<%= iduser%>" />
+    <input type="submit" name="save" value="Sauver" /><br/>
+    <input type="submit" name="Retour à la liste" formaction="/user" />
+
+</form>

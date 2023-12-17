@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/css/style.css">
+  <title>Liste des Tâches</title>
+</head>
+
+<body>
+
+    <h1>Liste des Tâches</h1>
+    <ul>
+      <% tasks.forEach((task, index) => { %>
+        <li>
+          <%= task.task %>                 <!--IMPORTANT task c'est : [{"idtask_list":1,"task":"faire les courses"},{"idtask_list":2,"task":"ok"},{"idtask_list":3,"task":"salut"}] mais nous on veut juste task comme dico en python -->
+          <a href="/deleteTask/<%= task.idtask_list %>">Effacer</a>  
+        </li>
+      <% }); %>
+
+    </ul>
+
+    
+  <% if (message) { %>
+    <p><%= message %></p>
+  <% } %>
+
+  <form action="/addTask" method="post"> <!-- Utilisez "post" pour envoyer des données au serveur -->
+    <input type="text" name="newTask" placeholder="Nouvelle tâche" required>
+    <button type="submit">Sauver</button>
+  </form>
+
+</body>
+</html>
